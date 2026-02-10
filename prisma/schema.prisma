@@ -1,0 +1,96 @@
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Developer {
+  id        String   @id
+  email     String   @unique
+  createdAt DateTime @default(now())
+  clients   Client[]
+  tasks     Task[]
+  reports   ProjectReport[]
+}
+
+model Client {
+  id          String    @id
+  name        String
+  // developerId removed in favor of implicit many-to-many
+
+  contactName String?
+  email       String?
+  mobile      String?
+  startDate   DateTime?
+  endDate     DateTime?
+  totalBudget String?
+  amountPaid  String?
+  createdAt   DateTime  @default(now())
+  developers  Developer[] // Many-to-Many relation
+  tasks       Task[]
+  reports     ProjectReport[]
+  documents   ClientDocument[]
+}
+
+model Task {
+  id          String    @id @default(cuid())
+  title       String
+  description String?
+  status      String    @default("PENDING")
+  developerId String? // Optional: The specific developer assigned to this task
+  clientId    String? // The project this task belongs to
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  developer   Developer? @relation(fields: [developerId], references: [id])
+  client      Client?    @relation(fields: [clientId], references: [id])
+}
+
+model ProjectRequest {
+  id           String   @id @default(cuid())
+  clientName   String
+  clientEmail  String
+  projectTitle String
+  description  String
+  budget       String?
+  status       String   @default("PENDING")
+  createdAt    DateTime @default(now())
+}
+
+model ContactInquiry {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  subject   String
+  message   String
+  status    String   @default("UNREAD") // UNREAD, READ, ARCHIVED
+  createdAt DateTime @default(now())
+}
+
+model ProjectReport {
+  id               String   @id @default(cuid())
+  clientId         String
+  developerId      String
+  status           String   @default("ON_TRACK") // ON_TRACK, DELAYED, COMPLETED, BLOCKED
+  summary          String
+  documentUrl      String?
+  issueType        String?  @default("NONE") // NONE, TECHNICAL, BLOCKER
+  issueDescription String?
+  createdAt        DateTime @default(now())
+
+  client    Client    @relation(fields: [clientId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  developer Developer @relation(fields: [developerId], references: [id])
+}
+
+model ClientDocument {
+  id          String   @id @default(cuid())
+  clientId    String
+  title       String
+  url         String
+  description String?
+  createdAt   DateTime @default(now())
+
+  client      Client   @relation(fields: [clientId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+}
