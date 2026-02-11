@@ -60,25 +60,25 @@ export default function DeveloperLogin() {
     return (
         <div className="min-h-screen bg-white dark:bg-zinc-950 flex flex-col selection:bg-emerald-100 font-sans">
             {/* Navbar */}
-            <nav className="z-50 w-full border-b border-zinc-100 bg-white/80 backdrop-blur-xl dark:border-zinc-800/50 dark:bg-zinc-950/80 px-8 py-4">
-                <div className="max-w-6xl mx-auto flex justify-between items-center">
+            <nav className="z-50 w-full border-b border-zinc-100 bg-white/80 backdrop-blur-xl dark:border-zinc-800/50 dark:bg-zinc-950/80 px-4 sm:px-8 py-4">
+                <div className="max-w-6xl mx-auto flex flex-row justify-between items-center">
                     <div
                         onClick={() => router.push('/')}
-                        className="cursor-pointer flex items-center gap-2.5"
+                        className="cursor-pointer flex items-center gap-1.5 sm:gap-2.5"
                     >
-                        <a href="https://res.cloudinary.com/dsqqrpzfl/image/upload/v1770405388/icon-removebg-preview_v3cxkb.png" target="_blank" rel="noopener noreferrer" className="mr-2">
-                            <img src="https://res.cloudinary.com/dsqqrpzfl/image/upload/v1770405388/icon-removebg-preview_v3cxkb.png" alt="External Logo" className="h-6 w-6" />
+                        <a href="https://res.cloudinary.com/dsqqrpzfl/image/upload/v1770405388/icon-removebg-preview_v3cxkb.png" target="_blank" rel="noopener noreferrer" className="mr-1 sm:mr-2">
+                            <img src="https://res.cloudinary.com/dsqqrpzfl/image/upload/v1770405388/icon-removebg-preview_v3cxkb.png" alt="External Logo" className="h-5 w-5 sm:h-6 sm:w-6" />
                         </a>
-                        <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-                        <span className="text-sm font-normal tracking-[0.2em] text-zinc-900 dark:text-white uppercase leading-none">
+                        <span className="h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-emerald-500 animate-pulse" />
+                        <span className="text-[10px] sm:text-sm font-normal tracking-widest sm:tracking-[0.2em] text-zinc-900 dark:text-white uppercase leading-none">
                             CSAPP<span className="text-zinc-400">Portal</span>
                         </span>
                     </div>
-                    <div className="flex gap-6 items-center">
-                        <a href="/request" className="text-[10px] font-normal uppercase tracking-wider text-zinc-400 hover:text-emerald-600 transition-opacity">
+                    <div className="flex gap-3 sm:gap-6 items-center">
+                        <a href="/request" className="text-[9px] sm:text-[10px] font-normal uppercase tracking-wider text-zinc-400 hover:text-emerald-600 transition-opacity whitespace-nowrap">
                             New Request
                         </a>
-                        <a href="/contact" className="rounded-full bg-emerald-600 px-4 py-1.5 text-[10px] font-normal uppercase tracking-widest text-white transition-colors hover:bg-emerald-500">
+                        <a href="/contact" className="rounded-full bg-emerald-600 px-3 sm:px-4 py-1.5 text-[9px] sm:text-[10px] font-normal uppercase tracking-widest text-white transition-colors hover:bg-emerald-500 whitespace-nowrap">
                             Contact Us
                         </a>
                     </div>
@@ -86,21 +86,21 @@ export default function DeveloperLogin() {
             </nav>
 
             {/* Main Content Area */}
-            <main className="flex-grow flex items-center justify-center px-8 sm:px-24">
+            <main className="flex-grow flex items-center justify-center px-4 sm:px-8 py-12">
                 <div className="w-full max-w-[400px] animate-in fade-in slide-in-from-bottom-4 duration-700">
 
                     {/* Header Section */}
-                    <header className="mb-10 text-center">
-                        <h1 className="text-3xl font-normal tracking-tight text-zinc-900 dark:text-zinc-100 mb-2">
+                    <header className="mb-8 sm:mb-10 text-center">
+                        <h1 className="text-2xl sm:text-3xl font-normal tracking-tight text-zinc-900 dark:text-zinc-100 mb-2">
                             Developer <span className="text-emerald-600">Access</span>
                         </h1>
-                        <p className="text-zinc-500 dark:text-zinc-400 text-xs font-normal">
+                        <p className="text-zinc-500 dark:text-zinc-400 text-xs font-normal px-4">
                             Connect to the development node and system tools.
                         </p>
                     </header>
 
                     {/* Login Container */}
-                    <div className="p-8 rounded-3xl border border-zinc-100 dark:border-zinc-900 bg-white/50 dark:bg-zinc-900/50 backdrop-blur-xl shadow-xl shadow-emerald-500/5">
+                    <div className="p-6 sm:p-8 rounded-3xl border border-zinc-100 dark:border-zinc-900 bg-white/50 dark:bg-zinc-900/50 backdrop-blur-xl shadow-xl shadow-emerald-500/5 mx-2 sm:mx-0">
                         <form onSubmit={handleLogin} className="space-y-5">
                             {error && (
                                 <div className="bg-emerald-50 dark:bg-emerald-950/20 border border-emerald-100 dark:border-emerald-900/50 text-emerald-700 dark:text-emerald-400 p-3 rounded-full text-[12px] font-normal text-center">
@@ -195,21 +195,23 @@ export default function DeveloperLogin() {
             </main>
 
             {/* Footer */}
-            <footer className="w-full bg-emerald-600 dark:bg-emerald-500 py-8 text-black lg:py-12 px-8">
-                <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
-                    <div className="flex flex-col items-center sm:items-start">
+            <footer className="w-full bg-emerald-600 dark:bg-emerald-500 py-8 text-black lg:py-12 px-6 sm:px-8">
+                <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-8 sm:gap-6">
+                    <div className="flex flex-col items-center sm:items-start max-w-xs">
                         <div className="flex items-center gap-2 mb-2">
                             <span className="h-1.5 w-1.5 rounded-full bg-black animate-pulse" />
                             <span className="text-[10px] font-normal tracking-[0.2em] uppercase text-black">CSAPP Precision</span>
                         </div>
-                        <p className="text-xs font-light text-black/80 text-center sm:text-left">
+                        <p className="text-[11px] font-light text-black/80 text-center sm:text-left leading-relaxed">
                             Architectural management for modern developers.
                         </p>
                     </div>
-                    <div className="flex gap-8 text-[10px] font-normal uppercase tracking-widest text-black/70">
-                        <a href="/privacy" className="underline-offset-4 hover:underline transition-all">Privacy</a>
-                        <a href="/terms" className="underline-offset-4 hover:underline transition-all">Terms</a>
-                        <div className="text-[10px] font-normal tracking-wider uppercase">
+                    <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-8 text-[10px] font-normal uppercase tracking-widest text-black/70">
+                        <div className="flex gap-8">
+                            <a href="/privacy" className="underline-offset-4 hover:underline transition-all">Privacy</a>
+                            <a href="/terms" className="underline-offset-4 hover:underline transition-all">Terms</a>
+                        </div>
+                        <div className="text-[10px] font-normal tracking-wider uppercase opacity-50 sm:opacity-100">
                             © {new Date().getFullYear()} CSAPP Precision
                         </div>
                     </div>
