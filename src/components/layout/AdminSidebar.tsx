@@ -52,9 +52,9 @@ export default function AdminSidebar() {
     ];
 
     return (
-        <aside className="w-64 h-screen bg-white dark:bg-white border-r border-red-700 flex flex-col fixed left-0 top-0 z-50">
+        <aside className="w-64 h-screen bg-red-600 border-r border-red-700 flex flex-col fixed left-0 top-0 z-50 shadow-2xl">
             <div className="p-8">
-                <img src="https://ik.imagekit.io/dypkhqxip/Screenshot_2026-03-13_at_21.00.59-removebg-preview.png" alt="Logo" className="h-8 w-auto brightness-0" />
+                <img src="https://ik.imagekit.io/dypkhqxip/Screenshot_2026-03-13_at_21.00.59-removebg-preview.png" alt="Logo" className="h-8 w-auto brightness-0 invert" />
             </div>
 
             <nav className="flex-1 px-4 space-y-1">
@@ -64,12 +64,12 @@ export default function AdminSidebar() {
                         <Link
                             key={link.name}
                             href={link.href}
-                            className={`flex items-center gap-3 px-4 py-3 rounded-none text-[12px] font-medium tracking-tight transition-all duration-300
+                            className={`flex items-center gap-3 px-4 py-3 rounded-none text-[12px] font-bold tracking-tight transition-all duration-300
               ${isActive
-                                    ? "bg-red-50 text-red-600 border border-red-100"
-                                    : "text-zinc-500 hover:text-red-600 border border-transparent"}`}
+                                    ? "bg-white text-red-600 shadow-lg"
+                                    : "text-red-100 hover:bg-white/10 hover:text-white"}`}
                         >
-                            <span className={isActive ? "text-red-600" : "text-zinc-400"}>
+                            <span className={isActive ? "text-red-600" : "text-red-200"}>
                                 {link.icon}
                             </span>
                             {link.name}
@@ -78,12 +78,12 @@ export default function AdminSidebar() {
                 })}
             </nav>
 
-            <div className="p-6 border-t border-zinc-100">
-                <div className="px-4 py-3 bg-red-50 rounded-none border border-red-100 flex items-center gap-3">
-                    <div className="w-8 h-8 bg-red-600 flex items-center justify-center font-bold text-white text-xs">A</div>
+            <div className="p-6 border-t border-red-500/50">
+                <div className="px-4 py-3 bg-red-700 rounded-none border border-red-500/50 flex items-center gap-3">
+                    <div className="w-8 h-8 bg-white flex items-center justify-center font-bold text-red-600 text-xs shadow-sm">A</div>
                     <div className="overflow-hidden">
-                        <p className="text-zinc-800 text-xs font-semibold truncate">Admin</p>
-                        <p className="text-red-600/60 text-[9px] uppercase tracking-widest font-bold">Admin Mode</p>
+                        <p className="text-white text-xs font-bold truncate uppercase tracking-wider">Admin</p>
+                        <p className="text-red-200 text-[9px] uppercase tracking-widest font-bold">Authorized</p>
                     </div>
                 </div>
             </div>
