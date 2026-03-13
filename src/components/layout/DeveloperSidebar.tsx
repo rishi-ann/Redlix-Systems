@@ -47,9 +47,10 @@ export default function DeveloperSidebar() {
 
     return (
         <aside className="w-64 h-screen bg-white border-r border-red-700 flex flex-col fixed left-0 top-0 z-50 font-sans">
-            <div className="p-8 pb-4">
+            <div className="p-8 pb-6">
                 <img src="https://ik.imagekit.io/dypkhqxip/Screenshot_2026-03-13_at_21.00.59-removebg-preview.png" alt="Logo" className="h-12 w-auto brightness-0" />
             </div>
+            <div className="mx-6 mb-6 border-t border-zinc-100" />
 
             <nav className="flex-1 px-4 space-y-1">
                 {links.map((link) => {
