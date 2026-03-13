@@ -248,10 +248,10 @@ export default function AdminClientsPage() {
                                             // If creating: disabled (auto-gen)
                                             // If editing: enabled
                                             readOnly={!isEditing}
-                                            className={`bg-white dark:bg-zinc-950 border-zinc-200 dark:border-zinc-800 h-10 text-[12px] font-mono ${!isEditing ? 'opacity-50 cursor-not-allowed' : ''}`}
+                                            className={`bg-white border-zinc-300 h-12 text-[12px] font-bold uppercase tracking-widest rounded-none ${!isEditing ? 'opacity-50 cursor-not-allowed bg-zinc-50' : 'focus:border-red-600'}`}
                                             placeholder={isEditing ? "RED-XXXX" : "Auto-generated"}
                                         />
-                                        {isEditing && <p className="text-[9px] text-amber-500 mt-1">Warning: Changing ID updates all linked records.</p>}
+                                        {isEditing && <p className="text-[9px] text-red-600 font-bold uppercase tracking-widest mt-2">Critical: Changing ID updates all linked database records.</p>}
                                     </div>
                                     <div>
                                         <label className="text-[10px] uppercase tracking-widest text-zinc-400 mb-1.5 block">Company Name</label>
@@ -260,7 +260,7 @@ export default function AdminClientsPage() {
                                             value={formData.name}
                                             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                                             required
-                                            className="bg-white dark:bg-zinc-950 border-zinc-200 dark:border-zinc-800 h-10 text-[12px]"
+                                            className="bg-white border-zinc-300 h-12 text-[12px] font-bold uppercase tracking-widest rounded-none focus:border-red-600"
                                         />
                                     </div>
                                     <div>
@@ -269,7 +269,7 @@ export default function AdminClientsPage() {
                                             placeholder="Full Name"
                                             value={formData.contactName}
                                             onChange={(e) => setFormData({ ...formData, contactName: e.target.value })}
-                                            className="bg-white dark:bg-zinc-950 border-zinc-200 dark:border-zinc-800 h-10 text-[12px]"
+                                            className="bg-white border-zinc-300 h-12 text-[12px] font-bold uppercase tracking-widest rounded-none focus:border-red-600"
                                         />
                                     </div>
                                 </div>
@@ -284,7 +284,7 @@ export default function AdminClientsPage() {
                                                 placeholder="+1 (555) 000-0000"
                                                 value={formData.mobile}
                                                 onChange={(e) => setFormData({ ...formData, mobile: e.target.value })}
-                                                className="bg-white dark:bg-zinc-950 border-zinc-200 dark:border-zinc-800 h-10 text-[12px]"
+                                                className="bg-white border-zinc-300 h-12 text-[12px] font-bold uppercase tracking-widest rounded-none focus:border-red-600"
                                             />
                                         </div>
                                         <div>
@@ -294,7 +294,7 @@ export default function AdminClientsPage() {
                                                 placeholder="contact@company.com"
                                                 value={formData.email}
                                                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                                className="bg-white dark:bg-zinc-950 border-zinc-200 dark:border-zinc-800 h-10 text-[12px]"
+                                                className="bg-white border-zinc-300 h-12 text-[12px] font-bold uppercase tracking-widest rounded-none focus:border-red-600"
                                             />
                                         </div>
                                     </div>
@@ -312,7 +312,7 @@ export default function AdminClientsPage() {
                                                 type="date"
                                                 value={formData.startDate}
                                                 onChange={(e) => setFormData({ ...formData, startDate: e.target.value })}
-                                                className="w-full bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 rounded-lg h-10 px-3 text-[12px] focus:outline-none focus:border-emerald-500 transition-colors"
+                                                className="w-full bg-white border border-zinc-300 rounded-none h-12 px-3 text-[12px] font-bold uppercase tracking-widest focus:outline-none focus:border-red-600 transition-colors"
                                             />
                                         </div>
                                         <div>
@@ -321,7 +321,7 @@ export default function AdminClientsPage() {
                                                 type="date"
                                                 value={formData.endDate}
                                                 onChange={(e) => setFormData({ ...formData, endDate: e.target.value })}
-                                                className="w-full bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 rounded-lg h-10 px-3 text-[12px] focus:outline-none focus:border-emerald-500 transition-colors"
+                                                className="w-full bg-white border border-zinc-300 rounded-none h-12 px-3 text-[12px] font-bold uppercase tracking-widest focus:outline-none focus:border-red-600 transition-colors"
                                             />
                                         </div>
                                     </div>
@@ -338,7 +338,7 @@ export default function AdminClientsPage() {
                                                 placeholder="0.00"
                                                 value={formData.totalBudget}
                                                 onChange={(e) => setFormData({ ...formData, totalBudget: e.target.value })}
-                                                className="bg-white dark:bg-zinc-950 border-zinc-200 dark:border-zinc-800 h-10 text-[12px]"
+                                                className="bg-white border-zinc-300 h-12 text-[12px] font-bold uppercase tracking-widest rounded-none focus:border-red-600"
                                             />
                                         </div>
                                         <div>
@@ -348,14 +348,14 @@ export default function AdminClientsPage() {
                                                 placeholder="0.00"
                                                 value={formData.amountPaid}
                                                 onChange={(e) => setFormData({ ...formData, amountPaid: e.target.value })}
-                                                className="bg-white dark:bg-zinc-950 border-zinc-200 dark:border-zinc-800 h-10 text-[12px]"
+                                                className="bg-white border-zinc-300 h-12 text-[12px] font-bold uppercase tracking-widest rounded-none focus:border-red-600"
                                             />
                                         </div>
                                     </div>
 
                                     <div>
                                         <label className="text-[10px] uppercase tracking-widest text-zinc-400 mb-1.5 block">Assign Developers</label>
-                                        <div className="grid grid-cols-1 gap-2 p-3 bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 rounded-lg max-h-40 overflow-y-auto">
+                                        <div className="grid grid-cols-1 gap-2 p-4 bg-white border border-zinc-300 rounded-none max-h-48 overflow-y-auto shadow-inner">
                                             {developers.map((dev) => (
                                                 <label key={dev.id} className="flex items-center gap-2 cursor-pointer hover:bg-zinc-50 dark:hover:bg-zinc-900 p-1 rounded">
                                                     <input
@@ -371,11 +371,11 @@ export default function AdminClientsPage() {
                                                         }}
                                                         className="w-3.5 h-3.5 text-red-600 rounded-none border-zinc-300 focus:ring-red-500"
                                                     />
-                                                    <span className="text-[11px] text-zinc-700 dark:text-zinc-300">{dev.email}</span>
+                                                    <span className="text-[11px] text-zinc-700 font-bold uppercase tracking-tight">{dev.email}</span>
                                                 </label>
                                             ))}
                                         </div>
-                                        <p className="text-[9px] text-zinc-400 mt-1">Select multiple developers for this project team.</p>
+                                        <p className="text-[9px] text-zinc-400 mt-2 font-bold uppercase tracking-widest">Select project team members.</p>
                                     </div>
                                 </div>
                             </div>

@@ -92,7 +92,7 @@ export default function AdminLogin() {
                                         value={email}
                                         onChange={(e) => setEmail(e.target.value)}
                                         required
-                                        className="h-12 border-zinc-400 bg-white"
+                                        className="h-14 border-zinc-300 bg-white rounded-none text-[13px] font-bold uppercase tracking-widest focus:border-red-600 transition-all font-sans"
                                     />
                                 </div>
 
@@ -104,7 +104,7 @@ export default function AdminLogin() {
                                         value={password}
                                         onChange={(e) => setPassword(e.target.value)}
                                         required
-                                        className="h-12 border-zinc-400 bg-white"
+                                        className="h-14 border-zinc-300 bg-white rounded-none text-[13px] font-bold uppercase tracking-widest focus:border-red-600 transition-all font-sans"
                                     />
                                 </div>
                             </div>

@@ -185,72 +185,77 @@ export default function AdminDashboard() {
                     </div>
                 </section>
 
-                {/* Modal - Emerald Style */}
+                {/* Task Assignment Modal */}
                 {selectedDev && (
-                    <div className="fixed inset-0 bg-white/60 dark:bg-black/60 backdrop-blur-sm flex items-center justify-center z-[100] p-4">
+                    <div className="fixed inset-0 bg-zinc-900/60 backdrop-blur-md flex items-center justify-center z-[100] p-4 animate-in fade-in duration-300">
                         <form
                             onSubmit={assignTask}
-                            className="bg-white border border-zinc-200 p-10 rounded-none shadow-2xl w-full max-w-lg space-y-6 animate-in fade-in zoom-in-95 duration-300"
+                            className="bg-white border-t-4 border-red-600 p-12 rounded-none shadow-[0_35px_60px_-15px_rgba(220,38,38,0.15)] w-full max-w-2xl space-y-10 animate-in zoom-in-95 duration-500"
                         >
                             <div>
                                 <h3 className="text-xl font-normal text-zinc-900 mb-1">Assign <span className="text-red-600">Task</span></h3>
                                 <p className="text-zinc-500 text-[11px] font-bold uppercase tracking-widest">{selectedDev.email}</p>
                             </div>
 
-                            <div className="space-y-4">
-                                <div className="space-y-1.5 text-left">
-                                    <label className="text-red-600 text-[10px] font-bold uppercase tracking-widest px-1">Choose Client</label>
-                                    <select
-                                        required
-                                        value={selectedClientId}
-                                        onChange={(e) => setSelectedClientId(e.target.value)}
-                                        className="w-full bg-white border border-zinc-400 rounded-none px-5 py-4 text-zinc-900 text-sm focus:outline-none focus:border-red-600 transition-all font-medium appearance-none cursor-pointer"
-                                    >
-                                        <option value="">Select a client...</option>
-                                        {clients.map((client) => (
-                                            <option key={client.id} value={client.id}>
-                                                {client.name}
-                                            </option>
-                                        ))}
-                                    </select>
+                             <div className="space-y-8">
+                                <div className="space-y-2 text-left">
+                                    <label className="text-zinc-400 text-[10px] font-bold uppercase tracking-[0.2em] px-1">Choose Client</label>
+                                    <div className="relative">
+                                        <select
+                                            required
+                                            value={selectedClientId}
+                                            onChange={(e) => setSelectedClientId(e.target.value)}
+                                            className="w-full bg-white border border-zinc-300 rounded-none px-6 py-5 text-zinc-900 text-[13px] font-bold uppercase tracking-widest focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600/10 transition-all appearance-none cursor-pointer"
+                                        >
+                                            <option value="" className="font-sans">Select Project Partner...</option>
+                                            {clients.map((client) => (
+                                                <option key={client.id} value={client.id} className="font-sans">
+                                                    {client.name}
+                                                </option>
+                                            ))}
+                                        </select>
+                                        <div className="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none text-red-600">
+                                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className="space-y-1.5 text-left">
-                                    <label className="text-red-600 text-[10px] font-bold uppercase tracking-widest px-1">Task Title</label>
+                                <div className="space-y-2 text-left">
+                                    <label className="text-zinc-400 text-[10px] font-bold uppercase tracking-[0.2em] px-1">Task Title</label>
                                     <input
                                         type="text"
                                         required
                                         value={taskTitle}
                                         onChange={(e) => setTaskTitle(e.target.value)}
-                                        placeholder="What needs to be done?"
-                                        className="w-full bg-white border border-zinc-400 rounded-none px-5 py-4 text-zinc-900 text-sm focus:outline-none focus:border-red-600 transition-all font-medium"
+                                        placeholder="Brief objective..."
+                                        className="w-full bg-white border border-zinc-300 rounded-none px-6 py-5 text-zinc-900 text-[13px] font-bold uppercase tracking-widest focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600/10 transition-all"
                                     />
                                 </div>
-                                <div className="space-y-1.5 text-left">
-                                    <label className="text-red-600 text-[10px] font-bold uppercase tracking-widest px-1">Details</label>
+                                <div className="space-y-2 text-left">
+                                    <label className="text-zinc-400 text-[10px] font-bold uppercase tracking-[0.2em] px-1">Detailed Description</label>
                                     <textarea
-                                        rows={4}
+                                        rows={5}
                                         value={taskDesc}
                                         onChange={(e) => setTaskDesc(e.target.value)}
-                                        placeholder="Add more information here..."
-                                        className="w-full bg-white border border-zinc-400 rounded-none px-5 py-4 text-zinc-900 text-sm focus:outline-none focus:border-red-600 transition-all font-medium resize-none"
+                                        placeholder="Technical requirements and goals..."
+                                        className="w-full bg-white border border-zinc-300 rounded-none px-6 py-5 text-zinc-900 text-[13px] font-bold uppercase tracking-widest focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600/10 transition-all resize-none shadow-sm"
                                     />
                                 </div>
                             </div>
 
-                            <div className="flex gap-4 pt-2">
+                             <div className="flex gap-6 pt-6 animate-in slide-in-from-bottom-2 duration-700">
                                 <button
                                     type="button"
                                     onClick={() => setSelectedDev(null)}
-                                    className="flex-1 py-3.5 border border-zinc-100 text-zinc-500 text-[11px] font-bold uppercase tracking-widest rounded-none hover:bg-zinc-50 transition-all"
+                                    className="flex-1 py-5 border border-zinc-200 text-zinc-400 text-[10px] font-bold uppercase tracking-[0.2em] rounded-none hover:bg-zinc-50 hover:text-zinc-800 transition-all duration-300"
                                 >
                                     Cancel
                                 </button>
                                 <button
                                     type="submit"
                                     disabled={assigning}
-                                    className="flex-1 py-3.5 bg-red-600 text-white text-[11px] font-bold uppercase tracking-widest rounded-none hover:bg-red-700 transition-all shadow-lg shadow-red-600/10"
+                                    className="flex-3 py-5 bg-red-600 text-white text-[10px] font-bold uppercase tracking-[0.2em] rounded-none hover:bg-red-700 transition-all duration-300 shadow-xl shadow-red-600/20 px-12"
                                 >
-                                    {assigning ? "Sending..." : "Assign"}
+                                    {assigning ? "Transmitting..." : "Assign Directive"}
                                 </button>
                             </div>
                         </form>
